@@ -252,7 +252,8 @@ module OpenID
         ca_bundle_path = File.join(File.dirname(__FILE__), 'ca-bundle.crt')
         @@store = OpenSSL::X509::Store.new
         @@store.set_default_paths
-        @@store.add_file(ca_bundle_path)        
+        # 06/28/2013 - Mike had to comment this out to resolve this SSL/postgres errror: http://stackoverflow.com/questions/12879892/rails-on-heroku-activerecordstatementinvalid-pgerror-ssl-error-cert-already
+        #@@store.add_file(ca_bundle_path)        
       end
       return @@store
     end
