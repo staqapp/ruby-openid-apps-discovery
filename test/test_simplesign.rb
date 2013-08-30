@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'gapps_openid'
-require 'test/fixtures'
+require_relative 'fixtures'
 require 'test/unit'
 
 class DiscoveryTest < Test::Unit::TestCase

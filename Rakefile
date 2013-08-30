@@ -2,7 +2,7 @@ require 'rubygems'
 require 'rake'
 require 'rake/testtask'
 require 'rake/packagetask'
-require 'rake/gempackagetask'
+require "rubygems/package_task"
 require 'rake/clean'
 
 CLEAN.include('pkg/*')
@@ -32,7 +32,7 @@ Rake::PackageTask.new("ruby-openid-apps-discovery", "1.0") do |p|
   p.package_files.include("lib/**/*.crt")
 end
 
-Rake::GemPackageTask.new(spec) do |pkg|
+Gem::PackageTask.new(spec) do |pkg|
   pkg.need_zip = true
   pkg.need_tar = true
 end
