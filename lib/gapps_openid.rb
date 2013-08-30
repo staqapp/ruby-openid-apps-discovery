@@ -70,10 +70,12 @@ module OpenID
   # Handles the bulk of Google's modified discovery prototcol
   # See http://groups.google.com/group/google-federated-login-api/web/openid-discovery-for-hosted-domains
   class GoogleDiscovery
-    
-    OpenID.cache = RAILS_CACHE rescue nil
+
+    # RAILS 4 no longer supports RAILS_CACHE
+    # OpenID.cache = RAILS_CACHE rescue nil
+    OpenID.cache = nil
     OpenID.logger = RAILS_DEFAULT_LOGGER rescue nil
-    
+
     NAMESPACES = {
       'xrds' => 'xri://$xrd*($v*2.0)',
       'xrd' => 'xri://$xrds',
